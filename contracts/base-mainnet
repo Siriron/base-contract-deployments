@@ -1,1 +1,20 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.24;
 
+/// @title BaseBuilderProof
+/// @notice A simple contract to mark deployment activity on Base by Siriron
+/// @author ChatGPT
+
+contract BaseBuilderProof {
+    string public builderName = "Siriron";
+    string public network = "Base Mainnet";
+    uint256 public deployedAt;
+
+    constructor() {
+        deployedAt = block.timestamp;
+    }
+
+    function getInfo() public view returns (string memory, string memory, uint256) {
+        return (builderName, network, deployedAt);
+    }
+}
